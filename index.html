@@ -3,6 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <link href="css/style.css" rel="stylesheet" />
 
     <title>Recetas MaggIA</title>
@@ -34,16 +40,15 @@
             </p>
           </div>
           <div id="maggIACont">
-            <img src="./images/MaggIA-01_1-1.png" />
+            <img src="./images/MaggIA-01_1-1.png" id="cocinera" />
           </div>
         </div>
       </div>
       <div id="chat">
         <div id="chatHistory">
           <div class="chatItem">
-            <img src="./images/MaggIA_icon-1.png" />
+            <img src="./images/MaggIA_icon-1.png" class="miniIcon" />
             <div>
-              <img src="./images/dialogo.png" />
               <p>
                 Antes de comenzar, ¿tienes algún producto Maggi® en tu despensa?
                 Si es así, ¡dime cuál tienes y exploraremos deliciosas recetas
@@ -98,7 +103,7 @@
 
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
           </div>
-          <div class="removed"></div>
+          <div class="removed" id="limit"></div>
         </div>
         <form id="chatForm">
           <input
@@ -106,7 +111,7 @@
             class="removed"
             type="text"
             name="fieldName"
-            placeholder="Tus ingredientes..."
+            placeholder="..."
           />
           <div id="chatButtonBox" class="removed" onclick="addIngredients()">
             <p>Enviar</p>
@@ -156,10 +161,11 @@
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
       </div>
       -->
-        <div class="removed"></div>
+        <div class="removed" id="limite"></div>
       </div>
     </div>
     <!-- MODAL -->
+    <img src="./images/MaggIA-01_1-1.png" id="cocineraDer" class="" />
     <div class="cocinando">
       <img
         class="cocinandoGif"
@@ -177,19 +183,19 @@
       // window.addEventListener("resize", adjustImageGrid);
 
       /*       function adjustImageGrid() {
-        const imageGrid = document.querySelector(".background");
-        const imageItems = document.getElementsByClassName("image-item");
+              const imageGrid = document.querySelector(".background");
+              const imageItems = document.getElementsByClassName("image-item");
 
-        const windowWidth = window.innerWidth;
-        const imageWidth = windowWidth / 4; // Four images wide
-        const imageHeight = window.innerHeight / 3 - 4; // Three images high with margin
+              const windowWidth = window.innerWidth;
+              const imageWidth = windowWidth / 4; // Four images wide
+              const imageHeight = window.innerHeight / 3 - 4; // Three images high with margin
 
-        for (let i = 0; i < imageItems.length; i++) {
-          const imageItem = imageItems[i];
-          imageItem.style.width = `${imageWidth}px`;
-          imageItem.style.height = `${imageHeight}px`;
-        }
-      } */
+              for (let i = 0; i < imageItems.length; i++) {
+                const imageItem = imageItems[i];
+                imageItem.style.width = `${imageWidth}px`;
+                imageItem.style.height = `${imageHeight}px`;
+              }
+            } */
 
       window.onbeforeunload = function () {
         window.scrollTo(0, 0);
@@ -202,19 +208,19 @@
         document.querySelector("#car").classList.add("removed");
 
         let newDivs = `<div class="chatItem">
-              <p>
-                ${selected}
-              </p>
-            </div>
-          </div><div class="chatItem">
-            <img src="./images/MaggIA_icon-1.png" />
-            <div>
-              <img src="./images/dialogo.png" />
-              <p>
-                ¡${selected}! ¡Delicioso! ¿Y qué otros ingredientes quieres agregar?
-              </p>
-            </div>
-          </div> `;
+                    <p>
+                      ${selected}
+                    </p>
+                  </div>
+                </div><div class="chatItem">
+                  <img src="./images/MaggIA_icon-1.png" class="miniIcon" />
+                  <div>
+                    
+                    <p>
+                      ¡${selected}! ¡Delicioso! ¿Y qué otros ingredientes quieres agregar?
+                    </p>
+                  </div>
+                </div> `;
         let newChatHistory = chatHistory.textContent;
         chatHistory.innerHTML += newDivs;
         document.querySelector("#chatButtonBox").className = "";
@@ -225,62 +231,64 @@
         prompt =
           '"' + selected + '", ' + document.querySelector("#chatInput").value;
         let readyToGo = `<div class="chatItem">
-              <p>
-                ${document.querySelector("#chatInput").value}
-              </p>
-            </div>
-          </div><div class="chatItem">
-            <img src="./images/MaggIA_icon-1.png" />
-            <div>
-              <img src="./images/dialogo.png" />
-              <p>
-                Bien, dejame ver qué podemos cocinar con estos ingredientes. Dame unos segundos, por favor.
-              </p>
-            </div>
-          </div>`;
+                    <p>
+                      ${document.querySelector("#chatInput").value}
+                    </p>
+                  </div>
+                </div><div class="chatItem">
+                  <img src="./images/MaggIA_icon-1.png" class="miniIcon" />
+                  <div>
+                    
+                    <p>
+                      Bien, dejame ver qué podemos cocinar con estos ingredientes. Dame unos segundos, por favor.
+                    </p>
+                  </div>
+                </div>`;
         chatHistory.innerHTML += readyToGo;
         document.querySelector("#chatInput").value = "";
-        chatHistory.scrollTop = chatHistory.scrollHeight;
-        document.querySelector("#chatForm").classList.add("removed");
-        document.querySelector("#chatButtonBox").className = "removed";
-        document.querySelector("#chatInput").className = "removed";
-        setTimeout(() => {
-          document.querySelector(".cocinando").classList.add("visible");
-        }, 1500);
+
+        document.querySelector(".cocinando").classList.add("visible");
+        document.querySelector("#chat").style.height = "70%";
+        document.querySelector("#chat").style.position = "relative";
+        document.querySelector("#chat").style.top = "-15rem";
+        //document.querySelector("#chat").style.margin = "0 auto";
+
+        document.querySelector("#maggIACont").classList.add("removed");
+        document.querySelector("#bienvenidos").classList.add("removed");
 
         let text = prompt;
         let recipe = await createRecipe(text);
-        myRecipe = `<div class="recetaCont">
-            <img src="./images/MaggIA_icon-1.png">
-            <div class="receta">
-              
-<div>
-  recipe
-</div>
-              
-            </div>
-          </div>`;
-        chatHistory.innerHTML = myRecipe;
+        myRecipe = `
+              <div></div>
+                <div class="chatItem" id="recetaChat">
+                  <img src="./images/MaggIA_icon-1.png" class="miniIcon" />
+                  <div>                    
+                    <p>${recipe} </p>
+                  </div>
+                </div>`;
+        chatHistory.innerHTML += myRecipe;
         //recipe;
         document.querySelector(".cocinando").classList.remove("visible");
 
-        let miReceta = document.querySelector(".receta");
+        /* let miReceta = document.querySelector(".receta");
         miReceta.innerHTML = recipe;
-        miReceta.className = "receta";
+        miReceta.className = "receta"; */
+
         document.querySelector(".cocinando").classList.remove("visible");
+        document.querySelector("#cocineraDer").className = "visible";
       }
       /* const formEl = document.querySelector("#contactForm");
-      formEl.addEventListener("submit", async (event) => {
-        event.preventDefault();
-        document.querySelector(".cocinando").className = "cocinando";
-        let text = selected + " " + document.querySelector("#message").value;
-        let recipe = await createRecipe(text);
-        let miReceta = document.querySelector(".receta");
-        miReceta.innerHTML = recipe;
-        miReceta.className = "receta";
-        document.querySelector(".cocinando").className =
-          "cocinando visibilityHidden";
-      }); */
+            formEl.addEventListener("submit", async (event) => {
+              event.preventDefault();
+              document.querySelector(".cocinando").className = "cocinando";
+              let text = selected + " " + document.querySelector("#message").value;
+              let recipe = await createRecipe(text);
+              let miReceta = document.querySelector(".receta");
+              miReceta.innerHTML = recipe;
+              miReceta.className = "receta";
+              document.querySelector(".cocinando").className =
+                "cocinando visibilityHidden";
+            }); */
     </script>
     <!--***** SLIDE SCRIPT TODO *****-->
     <!-- <script>
