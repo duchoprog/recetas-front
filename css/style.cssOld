@@ -1,0 +1,262 @@
+/*------------------------------------------------------------------
+
+
+Buttons, etc:	#726FB9 (blue)
+hover color:	#fed136 (yellow)
+-------------------------------------------------------------------*/
+
+/*--------------------
+Import Google Fonts
+--------------------*/
+
+/* main font for menu. */
+@import url(http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900);
+/* font for headings, text, tags */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800);
+@import url(http://fonts.googleapis.com/css?family=Playfair+Display:400italic&subset=latin,latin-ext);
+
+/*--------------------
+1. General
+--------------------*/
+
+body {
+  margin: 0px;
+  font-family: "Open Sans", Sans-serif;
+  position: relative;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
+  letter-spacing: 0.4px;
+  font-family: "Open Sans", Sans-serif;
+  color: #232323;
+}
+
+p {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 23px;
+  letter-spacing: 0.2px;
+  color: #797979;
+}
+
+a:hover,
+a:focus,
+a:active,
+a.active {
+  color: #fec503;
+}
+a,
+a:hover,
+a:focus,
+a:active,
+a.active {
+  outline: 0;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #fff;
+  font-size: 6rem;
+  font-weight: bold;
+}
+h3 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.background {
+  background-color: #232323;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -10;
+}
+
+.image-item {
+  flex-basis: 25%; /* Four images wide */
+  height: 33.33%; /* Three images high */
+  opacity: 0.3;
+}
+
+.image-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*--------------------
+3. Header
+--------------------*/
+
+header {
+  /* background-image: url(../images/maggi-home_s_b.jpg);  */
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  text-align: center;
+  color: #fff;
+  min-width: 100vw;
+  height: 98vh;
+  position: relative;
+}
+
+.selector {
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.selector > div {
+  background-color: #cccccc;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 3px rgba(85, 85, 85, 0.5);
+  box-sizing: content-box;
+}
+
+.selected {
+  border: 5px solid rgb(246, 191, 1);
+  border-radius: 1rem;
+}
+
+.formContainer {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 2rem;
+  padding: 2rem;
+  margin: 2rem auto;
+  min-height: 80%;
+  height: 80%;
+}
+
+#contactForm {
+  padding: 1rem;
+}
+
+textarea {
+  resize: none;
+}
+
+.noDisplay {
+  display: none;
+}
+
+.visibilityHidden {
+  visibility: hidden;
+}
+
+label {
+  margin: 0.2rem;
+}
+
+.receta {
+  width: 80%;
+  min-width: 80%;
+  margin: auto;
+  background-color: rgba(246, 191, 1, 0.5);
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  z-index: 2;
+}
+
+.cocinando {
+  background-color: rgba(245, 245, 112, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: 1100;
+  padding: auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  height: 800px;
+}
+.cocinando > img {
+  width: 30%;
+  margin: auto;
+  opacity: 0.9;
+  border-radius: 40%;
+}
+
+/*--------------------
+7. Components
+--------------------*/
+
+.btn-xl:hover,
+.btn-xl:focus,
+.btn-xl:active,
+.btn-xl.active,
+.open .dropdown-toggle.btn-xl {
+  color: #fff;
+  background-color: #fec503;
+  border-color: #f6bf01;
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn.active,
+.open .dropdown-toggle.btn {
+  color: #fff;
+  background-color: #fec503;
+  border-color: #f6bf01;
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 20px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.btn-xl {
+  color: #fff;
+  background-color: #726fb9;
+  border-color: #726fb9;
+  font-family: "Robot", sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 3px;
+  font-size: 18px;
+  padding: 20px 40px;
+}
+
+.visible {
+  visibility: visible;
+}

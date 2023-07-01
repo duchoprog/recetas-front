@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/style.css" rel="stylesheet" />
+
+    <title>Recetas MaggIA</title>
+    <script src="js/recetas.js"></script>
+  </head>
+  <body>
+    <div id="r5"><img src="./images/cosasder5sinfondo.png" /></div>
+    <div id="abajo">
+      <img
+        src="./images/related-posts-decoration-1-smph-maggi.png"
+        id="colIzq"
+      />
+      <img
+        src="./images/related-posts-decoration-2-smph-maggi.png"
+        id="colDer"
+      />
+      <div id="maskGroup">
+        <!-- <img src="./images/background-related-posts-maggi.jpg" /> -->
+        <div id="bienvenidos">
+          <div id="txt">
+            <h3 class="red">¡Bienvenidos al chat de MaggIA!</h3>
+            <p>
+              Con la ayuda de MaggIA, nuestra inteligencia artificial
+              especializada en gastronomía, podrás aprovechar al máximo los
+              ingredientes que tienes a tu disposición.
+            </p>
+            <p style="font-weight: bold">
+              ¡Comencemos a cocinar juntos de manera creativa y deliciosa!
+            </p>
+          </div>
+          <div id="maggIACont">
+            <img src="./images/MaggIA-01_1-1.png" />
+          </div>
+        </div>
+      </div>
+      <div id="chat">
+        <div id="chatHistory">
+          <div class="chatItem">
+            <img src="./images/MaggIA_icon-1.png" />
+            <div>
+              <img src="./images/dialogo.png" />
+              <p>
+                Antes de comenzar, ¿tienes algún producto Maggi® en tu despensa?
+                Si es así, ¡dime cuál tienes y exploraremos deliciosas recetas
+                juntos!
+              </p>
+            </div>
+          </div>
+          <div id="car" class="">
+            <!-- Full-width images with number and caption text  MAGGI®   -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <div
+              class="mySlides fade"
+              onclick="selectMe(this)"
+              data-description="Sopa de Pollo con Fideos Maggi"
+            >
+              <img
+                src="./images/Sopa-de-pollo-con-fideos-libre-de-gluten.png"
+              />
+              <div class="text">Sopa de Pollo con Fideos</div>
+            </div>
+
+            <div
+              class="mySlides fade"
+              onclick="selectMe(this)"
+              data-description="Caldo Casero sabor RES Maggi"
+            >
+              <img src="./images/Caldo-Casero-Res-front.png" />
+              <div class="text">Caldo Casero sabor RES</div>
+            </div>
+
+            <div
+              class="mySlides fade"
+              onclick="selectMe(this)"
+              data-description="Cubitos de Ajo y Cebolla Maggi"
+            >
+              <img
+                src="./images/Estuche-cubito-Ajo-Cebolla-con-Recetas_2.png"
+              />
+              <div class="text">Cubitos de Ajo y Cebolla</div>
+            </div>
+
+            <div
+              class="mySlides fade"
+              onclick="selectMe(this)"
+              data-description="Pasta de Tomate Maggi"
+            >
+              <img src="./images/Pasta_Tomate_113g_Front_.png" />
+              <div class="text">Pasta de Tomate</div>
+            </div>
+
+            <!-- Next and previous buttons -->
+
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+          </div>
+          <div class="removed"></div>
+        </div>
+        <form id="chatForm">
+          <input
+            id="chatInput"
+            class="removed"
+            type="text"
+            name="fieldName"
+            placeholder="Tus ingredientes..."
+          />
+          <div id="chatButtonBox" class="removed" onclick="addIngredients()">
+            <p>Enviar</p>
+          </div>
+        </form>
+
+        <!-- <div id="car" class="removed">
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <div
+            class="mySlides fade"
+            onclick="selectMe(this)"
+            data-description=' "Sopa de Pollo con Fideos Maggi" '
+          >
+            <img src="./images/Sopa-de-pollo-con-fideos-libre-de-gluten.png" />
+            <div class="text">Sopa de Pollo con Fideos</div>
+          </div>
+
+          <div
+            class="mySlides fade"
+            onclick="selectMe(this)"
+            data-description=' "Caldo Casero sabor RES Maggi" '
+          >
+            <img src="./images/Caldo-Casero-Res-front.png" />
+            <div class="text">Caldo Casero sabor RES</div>
+          </div>
+
+          <div
+            class="mySlides fade"
+            onclick="selectMe(this)"
+            data-description=' "Cubitos de Ajo y Cebolla Maggi" '
+          >
+            <img src="./images/Estuche-cubito-Ajo-Cebolla-con-Recetas_2.png" />
+            <div class="text">Cubitos de Ajo y Cebolla</div>
+          </div>
+
+          <div
+            class="mySlides fade"
+            onclick="selectMe(this)"
+            data-description=' "Pasta de Tomate Maggi" '
+          >
+            <img src="./images/Pasta_Tomate_113g_Front_.png" />
+            <div class="text">Pasta de Tomate</div>
+          </div>
+
+          
+
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      -->
+        <div class="removed"></div>
+      </div>
+    </div>
+    <!-- MODAL -->
+    <div class="cocinando">
+      <img
+        class="cocinandoGif"
+        src="images/cocinando.gif"
+        alt="Boton Recetas Inteligencia artificial Maggi"
+      />
+    </div>
+
+    <script>
+      let selected = "";
+      let prompt = "";
+      let chatHistory = document.querySelector("#chatHistory");
+      ////
+
+      // window.addEventListener("resize", adjustImageGrid);
+
+      /*       function adjustImageGrid() {
+        const imageGrid = document.querySelector(".background");
+        const imageItems = document.getElementsByClassName("image-item");
+
+        const windowWidth = window.innerWidth;
+        const imageWidth = windowWidth / 4; // Four images wide
+        const imageHeight = window.innerHeight / 3 - 4; // Three images high with margin
+
+        for (let i = 0; i < imageItems.length; i++) {
+          const imageItem = imageItems[i];
+          imageItem.style.width = `${imageWidth}px`;
+          imageItem.style.height = `${imageHeight}px`;
+        }
+      } */
+
+      window.onbeforeunload = function () {
+        window.scrollTo(0, 0);
+      };
+
+      /////
+      function selectMe(e) {
+        document.querySelector("#car").classList.add("removed");
+        selected = e.dataset.description;
+        document.querySelector("#car").classList.add("removed");
+
+        let newDivs = `<div class="chatItem">
+              <p>
+                ${selected}
+              </p>
+            </div>
+          </div><div class="chatItem">
+            <img src="./images/MaggIA_icon-1.png" />
+            <div>
+              <img src="./images/dialogo.png" />
+              <p>
+                ¡${selected}! ¡Delicioso! ¿Y qué otros ingredientes quieres agregar?
+              </p>
+            </div>
+          </div> `;
+        let newChatHistory = chatHistory.textContent;
+        chatHistory.innerHTML += newDivs;
+        document.querySelector("#chatButtonBox").className = "";
+        document.querySelector("#chatInput").className = "";
+      }
+
+      async function addIngredients() {
+        prompt =
+          '"' + selected + '", ' + document.querySelector("#chatInput").value;
+        let readyToGo = `<div class="chatItem">
+              <p>
+                ${document.querySelector("#chatInput").value}
+              </p>
+            </div>
+          </div><div class="chatItem">
+            <img src="./images/MaggIA_icon-1.png" />
+            <div>
+              <img src="./images/dialogo.png" />
+              <p>
+                Bien, dejame ver qué podemos cocinar con estos ingredientes. Dame unos segundos, por favor.
+              </p>
+            </div>
+          </div>`;
+        chatHistory.innerHTML += readyToGo;
+        document.querySelector("#chatInput").value = "";
+        chatHistory.scrollTop = chatHistory.scrollHeight;
+        document.querySelector("#chatForm").classList.add("removed");
+        document.querySelector("#chatButtonBox").className = "removed";
+        document.querySelector("#chatInput").className = "removed";
+        setTimeout(() => {
+          document.querySelector(".cocinando").classList.add("visible");
+        }, 1500);
+
+        let text = prompt;
+        let recipe = await createRecipe(text);
+        myRecipe = `<div class="recetaCont">
+            <img src="./images/MaggIA_icon-1.png">
+            <div class="receta">
+              
+<div>
+  recipe
+</div>
+              
+            </div>
+          </div>`;
+        chatHistory.innerHTML = myRecipe;
+        //recipe;
+        document.querySelector(".cocinando").classList.remove("visible");
+
+        let miReceta = document.querySelector(".receta");
+        miReceta.innerHTML = recipe;
+        miReceta.className = "receta";
+        document.querySelector(".cocinando").classList.remove("visible");
+      }
+      /* const formEl = document.querySelector("#contactForm");
+      formEl.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        document.querySelector(".cocinando").className = "cocinando";
+        let text = selected + " " + document.querySelector("#message").value;
+        let recipe = await createRecipe(text);
+        let miReceta = document.querySelector(".receta");
+        miReceta.innerHTML = recipe;
+        miReceta.className = "receta";
+        document.querySelector(".cocinando").className =
+          "cocinando visibilityHidden";
+      }); */
+    </script>
+    <!--***** SLIDE SCRIPT TODO *****-->
+    <!-- <script>
+      let slideIndex = 1;
+      showSlides(slideIndex);
+
+      // Next/previous controls
+      function plusSlides(n) {
+        showSlides((slideIndex += n));
+      }
+
+      // Thumbnail image controls
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+
+      function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+      }
+    </script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/cbpAnimatedHeader.js"></script>
+    <script src="js/theme-scripts.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
