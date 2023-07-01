@@ -50,7 +50,7 @@
             <img src="./images/MaggIA_icon-1.png" class="miniIcon" />
             <div>
               <p>
-                Antes de comenzar, ¿tienes algún producto Maggi® en tu despensa?
+                Antes de comenzar, ¿tienes algún producto Maggi® en tu cocina?
                 Si es así, ¡dime cuál tienes y exploraremos deliciosas recetas
                 juntos!
               </p>
@@ -217,7 +217,7 @@
                   <div>
                     
                     <p>
-                      ¡${selected}! ¡Delicioso! ¿Y qué otros ingredientes quieres agregar?
+                      ¡${selected}! ¡Delicioso! ¿Qué ingredientes tienes en la nevera?
                     </p>
                   </div>
                 </div> `;
@@ -276,6 +276,7 @@
 
         document.querySelector(".cocinando").classList.remove("visible");
         document.querySelector("#cocineraDer").className = "visible";
+        chatHistory.scrollTop = element.scrollHeight;
       }
       /* const formEl = document.querySelector("#contactForm");
             formEl.addEventListener("submit", async (event) => {
