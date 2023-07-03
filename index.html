@@ -180,22 +180,10 @@
       let chatHistory = document.querySelector("#chatHistory");
       ////
 
-      // window.addEventListener("resize", adjustImageGrid);
-
-      /*       function adjustImageGrid() {
-              const imageGrid = document.querySelector(".background");
-              const imageItems = document.getElementsByClassName("image-item");
-
-              const windowWidth = window.innerWidth;
-              const imageWidth = windowWidth / 4; // Four images wide
-              const imageHeight = window.innerHeight / 3 - 4; // Three images high with margin
-
-              for (let i = 0; i < imageItems.length; i++) {
-                const imageItem = imageItems[i];
-                imageItem.style.width = `${imageWidth}px`;
-                imageItem.style.height = `${imageHeight}px`;
-              }
-            } */
+      function scrollDivToBottom() {
+        var myDiv = document.getElementById("chatHistory");
+        myDiv.scrollTop = myDiv.scrollHeight;
+      }
 
       window.onbeforeunload = function () {
         window.scrollTo(0, 0);
@@ -276,20 +264,11 @@
 
         document.querySelector(".cocinando").classList.remove("visible");
         document.querySelector("#cocineraDer").className = "visible";
-        chatHistory.scrollTop = element.scrollHeight;
+        let chatHeight =
+          document.querySelector("#chatHistory").lastChild.height;
+        scrollDivToBottom(chatHeight);
+        document.getElementById("chatButtonBox").remove();
       }
-      /* const formEl = document.querySelector("#contactForm");
-            formEl.addEventListener("submit", async (event) => {
-              event.preventDefault();
-              document.querySelector(".cocinando").className = "cocinando";
-              let text = selected + " " + document.querySelector("#message").value;
-              let recipe = await createRecipe(text);
-              let miReceta = document.querySelector(".receta");
-              miReceta.innerHTML = recipe;
-              miReceta.className = "receta";
-              document.querySelector(".cocinando").className =
-                "cocinando visibilityHidden";
-            }); */
     </script>
     <!--***** SLIDE SCRIPT TODO *****-->
     <!-- <script>
